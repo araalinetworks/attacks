@@ -25,62 +25,14 @@ Running the Vulnerable container in Kubernetes
 
 We have already created a container with a vulnerable Apache Struts app and its present at - quay.io/araalinetworks/struts:latest
 
-Yaml file for k8s
-^^^^^^^^^^^^^^^^^^
-
-::
-   
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: kube-struts-svc
-    spec:
-      type: LoadBalancer
-      ports:
-        - port: 8080
-      selector:
-        app: kube-struts-pod
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: kube-struts-pod
-    spec:
-      selector:
-        matchLabels:
-          app: kube-struts-pod
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app: kube-struts-pod
-        spec:
-          containers:
-            - name: kube-struts-pod
-              image: quay.io/araalinetworks/struts:latest
-              securityContext:
-                privileged: true
-              volumeMounts:
-                - mountPath: /var/run/docker.sock
-                  name: docker-sock
-                  readOnly: false
-                  #imagePullSecrets:
-                  #- name: acr-secret
-          restartPolicy: Always
-          volumes:
-            - name: docker-sock
-              hostPath:
-                path: /var/run/docker.sock
-
-
-Save this as a yaml file - struts-deployment.yaml
+Download the deployment yaml file - deployment.yaml
 
 Apply this file in your Kubernetes cluster in a specific namespace
 
 .. code-block:: RST
 
-    $ kubectl create ns struts
-    $ kubectl apply -f struts-deployment.yaml -n struts
+    $ kubectl create ns strutfrontend
+    $ kubectl apply -f deployment.yaml -n strutfrontend
 
 Check (1) if the pods are running, and (2) get the External IP of the exposed service
 
