@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-ssrf-svc
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: kube-ssrf-pod
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-ssrf-pod
+spec:
+  selector:
+    matchLabels:
+      app: kube-ssrf-pod
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kube-ssrf-pod
+    spec:
+      containers:
+        - name: kube-ssrf-pod
+          image: quay.io/araalinetworks/ssrf
