@@ -21,11 +21,9 @@ There are 2 parts to this setup
 Running the Vulnerable container in Kubernetes
 ==============================================
 
-**Container:** 
+**Container:** We have already created a container with a vulnerable Apache Struts app and its present at - quay.io/araalinetworks/struts:latest
 
-We have already created a container with a vulnerable Apache Struts app and its present at - quay.io/araalinetworks/struts:latest
-
-Download the deployment yaml file - deployment.yaml
+Download the deployment yaml file --> **deployment.yaml**
 
 Apply this file in your Kubernetes cluster in a specific namespace
 
@@ -77,3 +75,15 @@ On the other terminal type
 Here, 40.88.254.51 is the IP of the struts app.
 
 and 104.41.3.199:12345 is the IP of the machine from which you are carrying out the attack.
+
+.. image:: https://raw.githubusercontent.com/araalinetworks/attacks/main/images/strutterminalsetup.png
+ :width: 650
+ :alt: Terminal Setup
+
+A reverse shell will be established on the listening port 12345
+
+.. image:: https://raw.githubusercontent.com/araalinetworks/attacks/main/images/strutreverseshell.png
+ :width: 650
+ :alt: Terminal Setup
+
+**Congratulations! Now you have a reverse shell on the container running the Struts Apps!**
