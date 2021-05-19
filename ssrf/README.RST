@@ -24,9 +24,7 @@ There are 2 parts to this setup
 Running the Vulnerable container in Kubernetes
 ==============================================
 
-**Container:** 
-
-We have already created a container with a vulnerable bWAPP app and its present at - quay.io/araalinetworks/ssrf
+**Container:** We have already created a container with a vulnerable bWAPP app and its present at - quay.io/araalinetworks/ssrf
 
 Download the deployment yaml and save it as deployment.yaml
 
