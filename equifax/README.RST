@@ -1,5 +1,5 @@
 ===============================
-Struts Attack - Equifax for AWS
+Struts Attack - Equifax 
 ===============================
 
 The goal of this article is to simulate the Equifax attack which was carried out exploiting Apache Struts vulnerability.
