@@ -1,6 +1,6 @@
-==========================
-SSRF Attack - CapitalOne
-==========================
+==========================================
+SSRF Attack - CapitalOne (Runs on AWS EKS)
+==========================================
 
 On 19th July 2019 **CapitalOne** was breached by an ex-aws employee exploiting a vulnerability on its Web Application Firewall (WAF) using Server Side Request Forgery, popularly known as SSRF attack.
 
