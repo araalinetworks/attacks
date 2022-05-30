@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yelb-appserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yelb-appserver
+      tier: middletier
+  template:
+    metadata:
+      labels:
+        app: yelb-appserver
+        tier: middletier
+    spec:
+      serviceAccountName: yelb-sa
+      containers:
+      - name: yelb-appserver
+        #        image:  mreferre/yelb-appserver:0.5
+        image:  araalinetworks/yelb:appserver-log4j
+        imagePullPolicy: Always
+        ports:
+        - name: appserver
+          containerPort: 4567
+        - name: appserver-log4j
+          containerPort: 8080
