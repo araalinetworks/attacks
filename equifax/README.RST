@@ -29,8 +29,8 @@ Apply this file in your Kubernetes cluster in a specific namespace
 
 .. code-block:: RST
 
-    $ kubectl create ns strutfrontend
-    $ kubectl apply -f deployment.yaml -n strutfrontend
+    kubectl create ns strutfrontend
+    kubectl apply -f deployment.yaml -n strutfrontend
 
 Check (1) if the pods are running, and (2) get the External IP of the exposed service
 
